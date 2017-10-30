@@ -49,7 +49,6 @@ public class FeedActivity extends AppCompatActivity {
         model.getArticles().observe(this, articles ->
             ArticlesUtil.bindViewToArticles(this ,articleView, articles)
         );
-
     }
 
     @Override

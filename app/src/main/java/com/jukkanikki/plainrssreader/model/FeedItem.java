@@ -2,16 +2,11 @@ package com.jukkanikki.plainrssreader.model;
 
 import java.util.List;
 
-// TODO: Add Room annotations
-// More: https://developer.android.com/topic/libraries/architecture/room.html
-
 /**
 * Article content.
 */
-// @Entity(tableName = "article")
 public class FeedItem {
 
-    //@PrimaryKey
     public String guid;
     
     public String title;
@@ -23,7 +18,6 @@ public class FeedItem {
     public String content;
     public Object enclosure;
     
-    //@Ignore
     public List<String> categories;
 
     public FeedItem(String title, String pubDate, String link, String guid, String author, String thumbnail, String description, String content, Object enclosure, List<String> categories) {

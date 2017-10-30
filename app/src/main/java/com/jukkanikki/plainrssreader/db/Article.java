@@ -6,6 +6,9 @@ import android.support.annotation.NonNull;
 
 /**
  * Article content.
+ *
+ * See Room annotations
+ * -  https://developer.android.com/topic/libraries/architecture/room.html
  */
 @Entity(tableName = "article")
 public class Article {

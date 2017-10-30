@@ -22,6 +22,12 @@ import com.jukkanikki.plainrssreader.util.PreferencesUtil;
 
 import java.util.List;
 
+/**
+ * Lifecycle aware view model rescues app from many complexities associated with
+ * configuration changes, etc., which tend to start and stop activities wildly
+ *
+ * Android view model used as base class to get handle to context
+ */
 public class ArticleViewModel extends AndroidViewModel {
 
     private static final String TAG = "ArticleViewModel";
@@ -30,6 +36,11 @@ public class ArticleViewModel extends AndroidViewModel {
 
     private MutableLiveData<List<Article>> articles;
 
+    /**
+     * Constructor with application is required
+     *
+     * @param application
+     */
     public ArticleViewModel(@NonNull Application application) {
         super(application);
 
@@ -37,6 +48,11 @@ public class ArticleViewModel extends AndroidViewModel {
         db = AppDatabase.getInMemoryDatabase(application);
     }
 
+    /**
+     * Get articles and load them if needed
+     *
+     * @return
+     */
     public LiveData<List<Article>> getArticles() {
         if (articles == null) {
             articles = new MutableLiveData<List<Article>>();
@@ -68,7 +84,7 @@ public class ArticleViewModel extends AndroidViewModel {
                     // Display the first 500 characters of the response string.
                     Log.d(TAG,"Response is: "+ response.substring(0,500));
 
-                    // marshal to feed
+                    // marshall json to feed
                     FeedWrapper feed = ArticlesUtil.convertToObjects(response);
 
                     // write articles from feed to SQLite db using Room
