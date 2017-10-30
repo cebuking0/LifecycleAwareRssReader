@@ -12,7 +12,7 @@ App has been created as part of [Coursera Android Programming Capstone] Project.
 
 # Versions
 
-See [PlainRssReader] if you are interedted in using traditional approach to lifecycle controlling.
+See [PlainRssReader] if you are interested in using traditional approach to lifecycle controlling.
 
 # Repository
 
