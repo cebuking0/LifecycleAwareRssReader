@@ -20,7 +20,7 @@ Repositorys docs directory contains resources which accompany this documentation
 
 # External services and content conversions
 
-Rss reading is implemented using http protocol and json payload. XML to Json conversion is done using [rss2json] service. [Gson] is used to marshall returned JSON to Plain Java Pojos.
+Rss reading is implemented using http protocol and json payload. XML to Json conversion is done using [rss2json] service.
 
 # Url's
 
@@ -131,19 +131,23 @@ I did have trial versio in use, and for this reason I needed to take snapshots f
 
 # Implementation
 
-Http requests are queued and processed using [Volley].
-
 Rss feed reading is proxied thru [rss2json] service, which converts feed to json on the fly.
+
+Http requests are queued and processed using [Volley].
 
 Feed url is read from preferences. When no feed is defined [Default feed] is used.
 
-Browsing items is implemented using RecyclerView as defined in [use recycler-view]
-
 Storing and changing settings is implemented using PreferefencesFragment as defined in [use preferences]
+
+[Gson] is used to marshall returned JSON to Plain Java Pojos.
+
+Browsing items is implemented using RecyclerView as defined in [use recycler-view]
 
 Lifecycle is controlled using [ViewModel] and [LiveData], which make programming model pretty simple.
 
-[Room] is used as ORM, it is pretty powerful, but usage is here really limited. [Room testing] explains how to test database operations.
+[Room] is used for object-relational-mapping. [Room testing] explains how to test database operations.
+
+# Usage of room
 
 Read [Room tutorial] and work thru [Room codelab] and [Android lifecycles codelab] for more details. When you have got this far you might be interested to read [LiveData patterns and antipatterns] and play with [Android arhitecture blueprints]. And don't miss [Android architecture guide].
 
