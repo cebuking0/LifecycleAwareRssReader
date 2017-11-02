@@ -62,7 +62,7 @@ public class ArticleViewModel extends AndroidViewModel {
     }
 
     /**
-     *  Do an asyncronous operation to fetch articles.
+     *  Fetch articles.
      *
      *  Volley used to fetch data
      *  - https://developer.android.com/training/volley/index.html
@@ -80,7 +80,6 @@ public class ArticleViewModel extends AndroidViewModel {
             new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    Log.d(TAG,"Received arcticles json");
 
                     // marshall json to feed
                     FeedWrapper feed = ArticlesUtil.convertToObjects(response);
@@ -93,11 +92,13 @@ public class ArticleViewModel extends AndroidViewModel {
 
                     // set liveData
                     articles.setValue(allArticles);
+
+                    Log.d(TAG,"Articles read and set to view");
                 }
             }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // if async operation fails
+                // if operation fails
                 Log.e(TAG, "Couldn't fetch articles");
             }
         });

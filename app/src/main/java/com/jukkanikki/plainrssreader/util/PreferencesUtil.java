@@ -4,9 +4,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 
 public class PreferencesUtil {
+
+    private static final String TAG = "PreferencesUtil";
 
     private PreferencesUtil () {}
 
@@ -26,6 +29,7 @@ public class PreferencesUtil {
     public static String getRssUrl(Context context) {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
         String rssUrl = sharedPref.getString(KEY_PREF_SOURCE, DEFAULT_RSS_URL);
+        Log.d(TAG, "Rss url is :"+rssUrl);
         return String.format("%s%s", RSS_TO_JSON_API_API ,rssUrl);
     }
 }
