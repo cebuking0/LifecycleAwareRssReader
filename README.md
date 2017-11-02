@@ -173,8 +173,7 @@ change url dialog
 
 # Known bugs
 
-User given url is not checked, and when trying to use wrong url during startup app will crash. Sorry. No safety net there. 
-- This bug is pretty annoying, since after giving false URL one needs to manually clear setting of App to get it starting again.
+User given url is not checked, and when trying to use wrong url during startup app will not show anything.
 
 [Coursera Android Programming Capstone]: https://www.coursera.org/learn/aadcapstone/home/welcome "Coursera Android Capstone"
 
