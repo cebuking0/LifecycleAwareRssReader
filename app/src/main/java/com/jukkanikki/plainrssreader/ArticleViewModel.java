@@ -80,9 +80,7 @@ public class ArticleViewModel extends AndroidViewModel {
             new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-
-                    // Display the first 500 characters of the response string.
-                    Log.d(TAG,"Response is: "+ response.substring(0,500));
+                    Log.d(TAG,"Received arcticles json");
 
                     // marshall json to feed
                     FeedWrapper feed = ArticlesUtil.convertToObjects(response);
@@ -100,7 +98,7 @@ public class ArticleViewModel extends AndroidViewModel {
             @Override
             public void onErrorResponse(VolleyError error) {
                 // if async operation fails
-                Log.e(TAG, "That didn't work!");
+                Log.e(TAG, "Couldn't fetch articles");
             }
         });
 
